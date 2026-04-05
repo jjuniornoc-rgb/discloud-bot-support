@@ -23,6 +23,10 @@ const DISCLOUD_TERMS = [
     'discloud', 'discloud.config', 'deploy', 'bot discord', 'hospedagem',
     'dominio', 'domínio', 'plano', 'ram', 'cpu', 'status', 'cli', 'upload', 'zip',
     'apt', 'python', 'node', 'java', 'go', 'rust', 'php',
+    '.up', '.commit', '.status', '.terminal', '.logs', '.reiniciar', '.restart',
+    '.iniciar', '.start', '.parar', '.stop', '.backup', '.apps', '.removerapp',
+    '.memoria', '.ram', '.version', '.git', '.dominio', '.subdominio', '.autorestart',
+    '.dir', '.upconfig', '.upsite', '.userinfo', '.planos', '.apt', '.help',
 ];
 
 function normalize(text: string): string {
