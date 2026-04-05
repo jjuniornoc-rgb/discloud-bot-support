@@ -28,7 +28,6 @@ Regras obrigatórias:
         }
     }
 
-    // Few-shot: injetar exemplos de respostas ideais para guiar o tom e formato
     if (userQuery) {
         const examples = selectExamples(userQuery, language, 3);
         if (examples.length > 0) {

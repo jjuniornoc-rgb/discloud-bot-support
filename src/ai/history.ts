@@ -14,7 +14,6 @@ export function addMessage(channelId: string, role: ChatMessage['role'], content
     entry.messages.push({ role, content });
     entry.lastActivity = Date.now();
 
-    // Manter apenas as últimas N mensagens
     if (entry.messages.length > config.MAX_HISTORY_MESSAGES) {
         entry.messages = entry.messages.slice(-config.MAX_HISTORY_MESSAGES);
     }

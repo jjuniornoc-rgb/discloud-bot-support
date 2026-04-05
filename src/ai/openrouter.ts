@@ -17,7 +17,6 @@ const MODEL_FALLBACK_CHAIN: string[] = [
 const TIMEOUT_MS = 30_000;
 const MAX_ATTEMPTS_PER_MODEL = 2;
 
-// Backoff por tipo de falha (ms)
 const BACKOFF = {
     RATE_LIMIT: [8_000, 20_000],
     SERVER_ERROR: [2_000, 5_000],
@@ -26,7 +25,6 @@ const BACKOFF = {
 
 type FailureKind = keyof typeof BACKOFF | 'SKIP_NOW';
 
-// Strings que indicam incompatibilidade de modelo (400, não adianta retry)
 const INCOMPATIBILITY_MARKERS = [
     'instruction is not enabled',
     'system role not supported',
@@ -39,7 +37,6 @@ function sleep(ms: number): Promise<void> {
 }
 
 function classifyError(status: number, body: string): FailureKind {
-    // Erros que nunca vão melhorar com retry no mesmo modelo — pular imediatamente
     if (status === 404 || status === 401 || status === 403) return 'SKIP_NOW';
     if (status === 400 && INCOMPATIBILITY_MARKERS.some(m => body.toLowerCase().includes(m))) return 'SKIP_NOW';
     if (status === 429) return 'RATE_LIMIT';
@@ -89,7 +86,6 @@ async function tryModel(
 
                 log('WARN', `[OpenRouter] ${model} falhou (${kind}): ${lastError}`);
 
-                // Erros permanentes: pular o modelo imediatamente sem nenhum retry
                 if (kind === 'SKIP_NOW') {
                     return { ok: false, rateLimited: false, error: lastError };
                 }

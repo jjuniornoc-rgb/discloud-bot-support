@@ -28,7 +28,6 @@ export function findRelevantDocs(query: string): DocTopic[] {
             }
         }
 
-        // +1 por cada palavra da query que aparece no body
         for (const word of queryWords) {
             if (word.length > 2 && normalizedBody.includes(word)) {
                 score += 1;
