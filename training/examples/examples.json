@@ -1,0 +1,205 @@
+[
+    {
+        "id": "ex-config-001",
+        "category": "discloud.config",
+        "question": "como configuro o discloud.config?",
+        "idealResponse": "O discloud.config precisa de pelo menos 4 campos: NAME (nome do seu app), TYPE (bot ou site), MAIN (arquivo de entrada, ex: index.js) e RAM (memória em MB, mínimo 100). Exemplo básico:\n\nNAME=meu-bot\nTYPE=bot\nMAIN=index.js\nRAM=256\nVERSION=latest\nAUTORESTART=true\n\nse quiser build automático, adicione BUILD=npm run build e START=npm run start. mais detalhes: https://docs.discloud.com/configurations/discloud.config",
+        "language": "pt",
+        "tags": [
+            "config",
+            "setup",
+            "deploy",
+            "campos"
+        ]
+    },
+    {
+        "id": "ex-config-002",
+        "category": "discloud.config",
+        "question": "what is discloud.config / what fields does it need",
+        "idealResponse": "discloud.config is the required configuration file for hosting on Discloud. The mandatory fields are NAME (app name), TYPE (bot or site), MAIN (entry file like index.js) and RAM (memory in MB, min 100). Example:\n\nNAME=my-bot\nTYPE=bot\nMAIN=index.js\nRAM=256\nVERSION=latest\nAUTORESTART=true\n\nfor auto-build, add BUILD=npm run build and START=npm run start. full docs: https://docs.discloud.com/configurations/discloud.config",
+        "language": "en",
+        "tags": [
+            "config",
+            "setup",
+            "deploy",
+            "fields"
+        ]
+    },
+    {
+        "id": "ex-crash-001",
+        "category": "errors",
+        "question": "meu bot caiu e não sobe mais / ta dando crash",
+        "idealResponse": "primeiro, vê os logs com /logs no canal do bot Discloud. se aparecer 'heap out of memory', precisa aumentar a RAM no discloud.config (tenta 256 ou mais). se for erro de código, o stack trace vai aparecer nos logs. coisas comuns que causam crash:\n\n- MAIN apontando pro arquivo errado\n- dependência faltando no package.json\n- token inválido ou variável de ambiente não configurada\n\nse nada resolver, tenta um /restart e observa os logs em tempo real. docs: https://docs.discloud.com/faq/troubleshooting-solutions",
+        "language": "pt",
+        "tags": [
+            "crash",
+            "erro",
+            "offline",
+            "logs",
+            "restart"
+        ]
+    },
+    {
+        "id": "ex-crash-002",
+        "category": "errors",
+        "question": "my bot keeps crashing on discloud",
+        "idealResponse": "first, check your logs using /logs in the Discloud bot channel. if you see 'heap out of memory', you need to increase RAM in discloud.config (try 256 or more). if it's a code error, the stack trace will show in the logs. common crash causes:\n\n- MAIN pointing to the wrong file\n- missing dependency in package.json\n- invalid token or missing env variable\n\nif nothing works, try /restart and watch the logs. docs: https://docs.discloud.com/faq/troubleshooting-solutions",
+        "language": "en",
+        "tags": [
+            "crash",
+            "error",
+            "offline",
+            "logs",
+            "restart"
+        ]
+    },
+    {
+        "id": "ex-deploy-cli-001",
+        "category": "deploy",
+        "question": "como faço deploy pelo terminal / cli",
+        "idealResponse": "pra usar o CLI da Discloud:\n\n1. instala com npm i -g discloud-cli\n2. faz login com discloud login (vai pedir seu token da API)\n3. na pasta do projeto, roda discloud upload pra primeiro deploy ou discloud commit pra atualizar\n\nlembra de ter o discloud.config na raiz do projeto e zipar tudo antes se necessário. docs: https://docs.discloud.com/how-to-host-using/cli",
+        "language": "pt",
+        "tags": [
+            "cli",
+            "deploy",
+            "upload",
+            "terminal"
+        ]
+    },
+    {
+        "id": "ex-deploy-cli-002",
+        "category": "deploy",
+        "question": "how do i deploy using the cli",
+        "idealResponse": "to use the Discloud CLI:\n\n1. install with npm i -g discloud-cli\n2. login with discloud login (it'll ask for your API token)\n3. in your project folder, run discloud upload for first deploy or discloud commit to update\n\nmake sure you have discloud.config in the root. docs: https://docs.discloud.com/how-to-host-using/cli",
+        "language": "en",
+        "tags": [
+            "cli",
+            "deploy",
+            "upload",
+            "terminal"
+        ]
+    },
+    {
+        "id": "ex-github-001",
+        "category": "github-actions",
+        "question": "como faço deploy automático com github actions",
+        "idealResponse": "pra configurar deploy automático, você precisa adicionar um workflow no seu repositório. cria o arquivo .github/workflows/discloud.yml e configura com a action oficial da Discloud. vai precisar do seu token da API como secret no GitHub (Settings > Secrets > DISCLOUD_TOKEN). cada push na branch principal vai fazer deploy automático. docs: https://docs.discloud.com/api-and-integrations/github-integration",
+        "language": "pt",
+        "tags": [
+            "github",
+            "actions",
+            "ci/cd",
+            "auto-deploy"
+        ]
+    },
+    {
+        "id": "ex-github-002",
+        "category": "github-actions",
+        "question": "how do i deploy with github actions",
+        "idealResponse": "to set up auto-deploy, add a workflow file at .github/workflows/discloud.yml using the official Discloud action. you'll need your API token as a GitHub secret (Settings > Secrets > DISCLOUD_TOKEN). every push to your main branch will trigger a deploy. docs: https://docs.discloud.com/api-and-integrations/github-integration",
+        "language": "en",
+        "tags": [
+            "github",
+            "actions",
+            "ci/cd",
+            "auto-deploy"
+        ]
+    },
+    {
+        "id": "ex-domain-001",
+        "category": "domains",
+        "question": "como registar um dominio personalizado",
+        "idealResponse": "pra configurar um domínio personalizado, abre o painel da Discloud, seleciona o app e vai na seção Custom Domain. cola o domínio que você já tem (precisa ter comprado antes num registrador tipo Cloudflare, Namecheap, etc). a Discloud vai mostrar qual registro DNS criar.\n\nnormalmente é um CNAME apontando pra username.app.discloud.cloud. se for domínio raiz, vê se seu registrador suporta CNAME flattening ou ALIAS. o SSL é automático depois que o DNS propagar. docs: https://docs.discloud.com/api-and-integrations/custom-domain",
+        "language": "pt",
+        "tags": [
+            "dominio",
+            "domain",
+            "dns",
+            "cname",
+            "ssl"
+        ]
+    },
+    {
+        "id": "ex-env-001",
+        "category": "environment-vars",
+        "question": "como adicionar variavel de ambiente / .env",
+        "idealResponse": "tem duas formas de configurar variáveis de ambiente na Discloud:\n\n1. pelo painel web: vai no seu app e edita as variáveis na interface\n2. pelo bot do Discord: usa o comando /env set NOME=valor\n\nnunca coloque tokens ou senhas direto no código. usa process.env.SUA_VARIAVEL no Node ou os.environ no Python. se tiver um .env local, não manda ele no deploy — configura as variáveis pelo painel. docs: https://docs.discloud.com/configurations/environment-variables",
+        "language": "pt",
+        "tags": [
+            "env",
+            "variavel",
+            "secret",
+            "token"
+        ]
+    },
+    {
+        "id": "ex-env-002",
+        "category": "environment-vars",
+        "question": "how to set environment variables",
+        "idealResponse": "two ways to set env vars on Discloud:\n\n1. web panel: go to your app and edit variables in the interface\n2. Discord bot: use /env set NAME=value\n\nnever hardcode tokens in your code. use process.env.YOUR_VAR in Node or os.environ in Python. don't upload your .env file — configure vars through the panel instead. docs: https://docs.discloud.com/configurations/environment-variables",
+        "language": "en",
+        "tags": [
+            "env",
+            "variable",
+            "secret",
+            "token"
+        ]
+    },
+    {
+        "id": "ex-commands-001",
+        "category": "commands",
+        "question": "qual o comando para reiniciar meu bot / como reiniciar",
+        "idealResponse": "usa /restart no canal do bot da Discloud no Discord. outros comandos úteis:\n\n/status — ver se o bot tá online e uso de RAM\n/logs — ver logs recentes (muito útil pra debug)\n/start — iniciar o app\n/stop — parar o app\n/backup — fazer backup do código\n/commit — atualizar o código com nova versão\n/ram — ver uso de memória\n\ndocs: https://docs.discloud.com/how-to-host-using/discord-bot",
+        "language": "pt",
+        "tags": [
+            "comando",
+            "restart",
+            "start",
+            "stop",
+            "logs",
+            "status"
+        ]
+    },
+    {
+        "id": "ex-commands-002",
+        "category": "commands",
+        "question": "what are the bot commands / how to restart",
+        "idealResponse": "use /restart in the Discloud bot channel on Discord. other useful commands:\n\n/status — check if your bot is online and RAM usage\n/logs — view recent logs (great for debugging)\n/start — start the app\n/stop — stop the app\n/backup — backup your code\n/commit — update code with new version\n/ram — check memory usage\n\ndocs: https://docs.discloud.com/how-to-host-using/discord-bot",
+        "language": "en",
+        "tags": [
+            "command",
+            "restart",
+            "start",
+            "stop",
+            "logs",
+            "status"
+        ]
+    },
+    {
+        "id": "ex-plans-001",
+        "category": "plans",
+        "question": "quais sao os planos da discloud / plano gratis",
+        "idealResponse": "a Discloud tem plano grátis que permite hospedar apps com limitações de RAM e quantidade. pra projetos maiores, tem planos pagos com mais RAM, mais apps e funcionalidades extras. o plano free é ótimo pra começar e testar, mas se seu bot crescer, vale considerar um upgrade. detalhes: https://docs.discloud.com/faq/general-questions",
+        "language": "pt",
+        "tags": [
+            "plano",
+            "free",
+            "premium",
+            "gratis",
+            "limite"
+        ]
+    },
+    {
+        "id": "ex-ram-001",
+        "category": "discloud.config",
+        "question": "what is the RAM field in discloud.config",
+        "idealResponse": "RAM sets the memory limit for your app in MB. minimum is 100MB. if your bot uses discord.js with many guilds, 256MB is usually a good start. if you get 'heap out of memory' errors, increase it. you can check current usage with /ram in the Discloud bot. set it in discloud.config like RAM=256. docs: https://docs.discloud.com/configurations/discloud.config",
+        "language": "en",
+        "tags": [
+            "ram",
+            "memory",
+            "config",
+            "heap"
+        ]
+    }
+]
