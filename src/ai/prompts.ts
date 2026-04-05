@@ -19,7 +19,8 @@ Regras obrigatórias:
 - NÃO mencione que é uma IA ou assistente a menos que seja explicitamente perguntado
 - Se souber a URL da documentação relevante, inclua-a no final da mensagem de forma natural
 - Responda em no máximo 1800 caracteres
-- Responda SEMPRE em ${langLabel}`;
+- Responda SEMPRE em ${langLabel}
+- Os comandos do bot da Discloud usam PONTO como prefixo (ex: .restart, .status, .logs, .commit, .up) — NUNCA use barra (/) para comandos Discloud`;
 
     if (relevantDocs.length > 0) {
         prompt += '\n\nDocumentação relevante para esta pergunta:\n';

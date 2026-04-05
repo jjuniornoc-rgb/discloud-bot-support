@@ -29,7 +29,7 @@
         "id": "ex-crash-001",
         "category": "errors",
         "question": "meu bot caiu e não sobe mais / ta dando crash",
-        "idealResponse": "primeiro, vê os logs com /logs no canal do bot Discloud. se aparecer 'heap out of memory', precisa aumentar a RAM no discloud.config (tenta 256 ou mais). se for erro de código, o stack trace vai aparecer nos logs. coisas comuns que causam crash:\n\n- MAIN apontando pro arquivo errado\n- dependência faltando no package.json\n- token inválido ou variável de ambiente não configurada\n\nse nada resolver, tenta um /restart e observa os logs em tempo real. docs: https://docs.discloud.com/faq/troubleshooting-solutions",
+        "idealResponse": "primeiro, vê os logs com .terminal (ou .logs) no canal do bot Discloud. se aparecer 'heap out of memory', precisa aumentar a RAM no discloud.config (tenta 256 ou mais). se for erro de código, o stack trace vai aparecer nos logs. coisas comuns que causam crash:\n\n- MAIN apontando pro arquivo errado\n- dependência faltando no package.json\n- token inválido ou variável de ambiente não configurada\n\nse nada resolver, tenta um .reiniciar e observa os logs em tempo real. docs: https://docs.discloud.com/faq/troubleshooting-solutions",
         "language": "pt",
         "tags": [
             "crash",
@@ -43,7 +43,7 @@
         "id": "ex-crash-002",
         "category": "errors",
         "question": "my bot keeps crashing on discloud",
-        "idealResponse": "first, check your logs using /logs in the Discloud bot channel. if you see 'heap out of memory', you need to increase RAM in discloud.config (try 256 or more). if it's a code error, the stack trace will show in the logs. common crash causes:\n\n- MAIN pointing to the wrong file\n- missing dependency in package.json\n- invalid token or missing env variable\n\nif nothing works, try /restart and watch the logs. docs: https://docs.discloud.com/faq/troubleshooting-solutions",
+        "idealResponse": "first, check your logs using .terminal (or .logs) in the Discloud bot channel. if you see 'heap out of memory', you need to increase RAM in discloud.config (try 256 or more). if it's a code error, the stack trace will show in the logs. common crash causes:\n\n- MAIN pointing to the wrong file\n- missing dependency in package.json\n- invalid token or missing env variable\n\nif nothing works, try .restart and watch the logs. docs: https://docs.discloud.com/faq/troubleshooting-solutions",
         "language": "en",
         "tags": [
             "crash",
@@ -123,7 +123,7 @@
         "id": "ex-env-001",
         "category": "environment-vars",
         "question": "como adicionar variavel de ambiente / .env",
-        "idealResponse": "tem duas formas de configurar variáveis de ambiente na Discloud:\n\n1. pelo painel web: vai no seu app e edita as variáveis na interface\n2. pelo bot do Discord: usa o comando /env set NOME=valor\n\nnunca coloque tokens ou senhas direto no código. usa process.env.SUA_VARIAVEL no Node ou os.environ no Python. se tiver um .env local, não manda ele no deploy — configura as variáveis pelo painel. docs: https://docs.discloud.com/configurations/environment-variables",
+        "idealResponse": "tem duas formas de configurar variáveis de ambiente na Discloud:\n\n1. pelo painel web: vai no seu app e edita as variáveis na interface\n2. pelo bot do Discord: não tem comando direto de /env — usa o painel mesmo\n\nnunca coloque tokens ou senhas direto no código. usa process.env.SUA_VARIAVEL no Node ou os.environ no Python. se tiver um .env local, não manda ele no deploy — configura as variáveis pelo painel. docs: https://docs.discloud.com/configurations/environment-variables",
         "language": "pt",
         "tags": [
             "env",
@@ -136,7 +136,7 @@
         "id": "ex-env-002",
         "category": "environment-vars",
         "question": "how to set environment variables",
-        "idealResponse": "two ways to set env vars on Discloud:\n\n1. web panel: go to your app and edit variables in the interface\n2. Discord bot: use /env set NAME=value\n\nnever hardcode tokens in your code. use process.env.YOUR_VAR in Node or os.environ in Python. don't upload your .env file — configure vars through the panel instead. docs: https://docs.discloud.com/configurations/environment-variables",
+        "idealResponse": "two ways to set env vars on Discloud:\n\n1. web panel: go to your app and edit variables in the interface\n2. there's no .env command in the Discord bot — use the web panel\n\nnever hardcode tokens in your code. use process.env.YOUR_VAR in Node or os.environ in Python. don't upload your .env file — configure vars through the panel instead. docs: https://docs.discloud.com/configurations/environment-variables",
         "language": "en",
         "tags": [
             "env",
@@ -149,7 +149,7 @@
         "id": "ex-commands-001",
         "category": "commands",
         "question": "qual o comando para reiniciar meu bot / como reiniciar",
-        "idealResponse": "usa /restart no canal do bot da Discloud no Discord. outros comandos úteis:\n\n/status — ver se o bot tá online e uso de RAM\n/logs — ver logs recentes (muito útil pra debug)\n/start — iniciar o app\n/stop — parar o app\n/backup — fazer backup do código\n/commit — atualizar o código com nova versão\n/ram — ver uso de memória\n\ndocs: https://docs.discloud.com/how-to-host-using/discord-bot",
+        "idealResponse": "usa .reiniciar (ou .restart) no canal do bot da Discloud no Discord. outros comandos úteis:\n\n.status — ver se o bot tá online e uso de RAM\n.terminal — ver logs recentes (muito útil pra debug)\n.iniciar — iniciar o app\n.parar — parar o app\n.backup — fazer backup do código\n.commit — atualizar o código com nova versão\n.memoria — mudar RAM\n\ndocs: https://docs.discloud.com/how-to-host-using/discord-bot",
         "language": "pt",
         "tags": [
             "comando",
@@ -164,7 +164,7 @@
         "id": "ex-commands-002",
         "category": "commands",
         "question": "what are the bot commands / how to restart",
-        "idealResponse": "use /restart in the Discloud bot channel on Discord. other useful commands:\n\n/status — check if your bot is online and RAM usage\n/logs — view recent logs (great for debugging)\n/start — start the app\n/stop — stop the app\n/backup — backup your code\n/commit — update code with new version\n/ram — check memory usage\n\ndocs: https://docs.discloud.com/how-to-host-using/discord-bot",
+        "idealResponse": "use .reiniciar (or .restart) in the Discloud bot channel on Discord. other useful commands:\n\n.status — check if your bot is online and RAM usage\n.terminal — view recent logs (great for debugging)\n.iniciar — start the app\n.parar — stop the app\n.backup — backup your code\n.commit — update code with new version\n.memoria — change RAM limit\n\ndocs: https://docs.discloud.com/how-to-host-using/discord-bot",
         "language": "en",
         "tags": [
             "command",
