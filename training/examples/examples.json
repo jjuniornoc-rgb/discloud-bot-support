@@ -122,8 +122,8 @@
     {
         "id": "ex-env-001",
         "category": "environment-vars",
-        "question": "como adicionar variavel de ambiente / .env",
-        "idealResponse": "tem duas formas de configurar variáveis de ambiente na Discloud:\n\n1. pelo painel web: vai no seu app e edita as variáveis na interface\n2. pelo bot do Discord: não tem comando direto de /env — usa o painel mesmo\n\nnunca coloque tokens ou senhas direto no código. usa process.env.SUA_VARIAVEL no Node ou os.environ no Python. se tiver um .env local, não manda ele no deploy — configura as variáveis pelo painel. docs: https://docs.discloud.com/configurations/environment-variables",
+        "question": "como adicionar variavel de ambiente depois do deploy",
+        "idealResponse": "variáveis de ambiente na Discloud são configuradas pelo painel web — não existe comando .env no bot. entra no painel, seleciona o app, vai em Environment Variables, adiciona ou edita o que precisar e salva. depois dá um .reiniciar pra carregar os novos valores (se o app lê as vars só na inicialização). nunca manda o arquivo .env no deploy. docs: https://docs.discloud.com/configurations/environment-variables",
         "language": "pt",
         "tags": [
             "env",
@@ -135,8 +135,8 @@
     {
         "id": "ex-env-002",
         "category": "environment-vars",
-        "question": "how to set environment variables",
-        "idealResponse": "two ways to set env vars on Discloud:\n\n1. web panel: go to your app and edit variables in the interface\n2. there's no .env command in the Discord bot — use the web panel\n\nnever hardcode tokens in your code. use process.env.YOUR_VAR in Node or os.environ in Python. don't upload your .env file — configure vars through the panel instead. docs: https://docs.discloud.com/configurations/environment-variables",
+        "question": "how to set environment variables after deploy",
+        "idealResponse": "env vars on Discloud are configured through the web panel only — there's no .env command in the Discord bot. go to the panel, select your app, open Environment Variables, add or edit what you need and save. then run .reiniciar to reload the values (if your app reads vars only on startup). never upload your .env file in the deploy. docs: https://docs.discloud.com/configurations/environment-variables",
         "language": "en",
         "tags": [
             "env",

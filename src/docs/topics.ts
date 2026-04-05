@@ -94,9 +94,9 @@ export const topics: DocTopic[] = [
     id: 'env',
     title: 'Variáveis de Ambiente',
     titleEn: 'Environment Variables',
-    summary: 'Como configurar variáveis de ambiente (secrets) nos apps hospedados na Discloud, sem expor tokens e senhas no código. Uso via painel ou comando /env.',
-    summaryEn: 'How to configure environment variables (secrets) in apps hosted on Discloud, without exposing tokens and passwords in the code. Usage via panel or /env command.',
+    summary: 'Como configurar variáveis de ambiente (secrets) nos apps hospedados na Discloud, sem expor tokens e senhas no código. Configuração exclusivamente pelo painel web da Discloud — não existe comando .env no bot. Nunca envie o arquivo .env no deploy.',
+    summaryEn: 'How to configure environment variables (secrets) in apps hosted on Discloud, without exposing tokens and passwords in the code. Configuration only through the Discloud web panel — there is no .env command in the bot. Never upload your .env file in the deploy.',
     url: 'https://docs.discloud.com/configurations/environment-variables',
-    keywords: ['env', 'variavel', 'variável', 'variable', '.env', 'secret', 'token', 'senha', 'password', 'chave', 'key', 'ambiente'],
+    keywords: ['env', 'variavel', 'variável', 'variable', 'secret', 'token', 'senha', 'password', 'chave', 'key', 'ambiente', 'editar variavel', 'mudar variavel'],
   },
 ];
